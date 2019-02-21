@@ -92,6 +92,6 @@ after_success:
   - wget -q -O - http://files.viva64.com/etc/pubkey.txt | sudo apt-key add -
   - sudo wget -O /etc/apt/sources.list.d/viva64.list http://files.viva64.com/etc/viva64.list
   - sudo apt-get update && sudo apt-get install pvs-studio
-  - pvs-studio-analyzer credentials ${PVS_USER} ${PVS_KEY} -O ~/PVS-Studio.lic
+  - pvs-studio-analyzer credentials ${PVS_USER} ${PVS_KEY} -o ~/PVS-Studio.lic
   - pvs-studio-analyzer analyze -l ~/PVS-Studio.lic -o ${TRAVIS_BUILD_DIR}/project.log -e ${TRAVIS_BUILD_DIR}/modules -j2
   - plog-converter -a GA:1,2 -t tasklist -o ${TRAVIS_BUILD_DIR}/project.tasks ${TRAVIS_BUILD_DIR}/project.log
